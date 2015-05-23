@@ -8,13 +8,16 @@ class Paddle
 {
 public:
 	Paddle();
+	int paddleVelocity;
 	void setSize(int width, int height);
 	void setPosition(float posX, float posY);
 	void moveHorizontal();
 	void moveVertical();
+	void slowDown();
 	float posX, posY;
 	int paddleWidth, paddleHeight;
 	int velX, velY;
 	int index;
+	bool reverse; // zmienna okreœlaj¹ca czy paletka ma odwrócone kontrole
 };
 #endif

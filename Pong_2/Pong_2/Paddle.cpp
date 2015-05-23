@@ -4,6 +4,8 @@ Paddle::Paddle()
 {
 	velX = 0;
 	velY = 0;
+	reverse = false;
+	paddleVelocity = 6;
 }
 void Paddle::setSize(int width, int height)
 {
@@ -14,6 +16,10 @@ void Paddle::setPosition(float x, float y)
 {
 	posX = x;
 	posY = y;
+}
+void Paddle::slowDown()
+{
+	paddleVelocity /= 2;
 }
 void Paddle::moveHorizontal()
 {

@@ -10,18 +10,19 @@
 #include <math.h>
 #ifndef BALL_H_
 #define BALL_H_
-
 const float BALL_SPEED = -4.0;
 const float MAX_BOUND_ANGLE = 5 * M_PI / 12;
 
 class Ball
 {
 public:
+	float ballSpeed;
 	Ball();
 	void setPosition(float posX, float posY);
-	void move(Paddle paddles[], Event speed);
+	void move(Paddle paddles[], Event *speed, Event *reverse, Event *slow, clock_t *start);
 	float posX, posY;
 	float velX, velY;
+	int lastPlayer;
 	int ballWidth, ballHeight;
 };
 #endif

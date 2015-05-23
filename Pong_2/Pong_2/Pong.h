@@ -3,7 +3,6 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Event.h"
-const int PADDLE_VELOCITY = 6;
 
 class Pong
 {
@@ -14,10 +13,11 @@ public:
 	void run();
 	void render(Texture texture, int x, int y, SDL_Renderer* renderer);
 	void handleEvent(SDL_Event& e);
+	void randomEvent();
 	SDL_Window* window;
 	SDL_Renderer* renderer;
-	Texture horizontalPaddle, verticalPaddle, ballTexture, speedTexture;
+	Texture horizontalPaddle, verticalPaddle, ballTexture, speedTexture, reverseTexture, slowTexture;
 	Paddle paddles[4];
 	Ball ball;
-	Event speed;
+	Event speed, reverse, slow;
 };
