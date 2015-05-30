@@ -54,4 +54,21 @@ void Ball::move(Paddle paddles[], Event *speed, Event *reverse, Event *slow, clo
 		slow->inactive = true;
 		lastEvent = 3;
 	}
+	if (posY + ballHeight + 10 > paddles[0].posY && posX + ballWidth > paddles[0].posX && posX < paddles[0].posX + paddles[0].paddleWidth)
+	{
+		lastPaddle = 0;
+	}
+	if (posY - ballHeight - 10 < paddles[1].paddleHeight && posX + ballWidth > paddles[1].posX && posX < paddles[1].posX + paddles[1].paddleWidth)
+	{
+		lastPaddle = 1;
+	}
+	if (posX - ballWidth - 10 < paddles[2].paddleWidth && posY + ballHeight > paddles[2].posY
+		&& posY < paddles[2].posY + paddles[2].paddleHeight)
+	{
+		lastPaddle = 2;
+	}
+	if (posX + ballWidth + 10 > paddles[3].posX && posY + ballHeight > paddles[3].posY && posY < paddles[3].posY + paddles[3].paddleHeight)
+	{
+		lastPaddle = 3;
+	}
 }

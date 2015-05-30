@@ -11,7 +11,7 @@
 #pragma comment(lib,"ws2_32.lib")
 #pragma warning(disable:4996)
 #define SERVER "127.0.0.1"
-#define BUFLEN 11
+#define BUFLEN 9
 #define PORT 8888
 
 class Pong

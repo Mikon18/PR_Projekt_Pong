@@ -183,7 +183,7 @@ void Pong::run()
 						buf[4] = -200;
 						buf[5] = -200;
 					}
-					buf[9] = ball.lastPaddle;
+			//		buf[9] = ball.lastPaddle;
 					tmp2 = clock();
 					if (speed.inactive == true && slow.inactive == true && reverse.inactive == true && ((tmp2-start2)>10000) &&
 						user_count > MAX_USERS)
@@ -209,14 +209,14 @@ void Pong::run()
 						buf[7] = reverse.posX;
 						buf[8] = reverse.posY;
 					}
-					if (ball.faultInd)
+			/*		if (ball.faultInd)
 					{
 						buf[10] = 0;
 					}
 					else
 					{
 						buf[10] = -1;
-					}
+					}*/
 					if (sendto(s, (char*)buf, BUFLEN * sizeof(int), 0, (struct sockaddr *) &si_other, slen) == SOCKET_ERROR)
 					{
 					}

@@ -9,7 +9,7 @@
 
 #pragma comment(lib,"ws2_32.lib")
 #define PORT 8888
-#define BUFLEN 11
+#define BUFLEN 9
 #define MAX_USERS 4
 #pragma warning(disable:4996)
 class Pong

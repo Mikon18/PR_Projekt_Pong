@@ -1,21 +1,40 @@
-﻿Build started 2015-05-30 01:21:20.
-     1>Project "C:\Users\Michal\Desktop\Pong2_Server - Kopia\Pong_2\Pong_2\Pong_2.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2015-05-30 14:06:15.
+     1>Project "C:\Users\Michal\Desktop\Pong_Server\Pong_2\Pong_2\Pong_2.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Pong_2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp
-         Ball.cpp
-     1>c:\users\michal\desktop\pong2_server - kopia\pong_2\pong_2\ball.h(14): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\users\michal\desktop\pong2_server - kopia\pong_2\pong_2\ball.cpp(107): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Pong.cpp main.cpp
+         Pong.cpp
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\ball.h(14): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(61): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(70): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(73): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(76): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(160): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(165): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(170): warning C4551: function call missing argument list
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(178): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(179): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(197): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(198): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(203): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(204): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(209): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\pong.cpp(210): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Compiling...
+         main.cpp
+     1>c:\users\michal\desktop\pong_server\pong_2\pong_2\ball.h(14): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+         Generating Code...
        Link:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Michal\Desktop\Pong2_Server - Kopia\Pong_2\Debug\Pong_Server.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Michal\Desktop\Pong2_Server - Kopia\Pong_2\Debug\Pong_Server.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Michal\Desktop\Pong2_Server - Kopia\Pong_2\Debug\Pong_Server.lib" /MACHINE:X86 Debug\Ball.obj
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Michal\Desktop\Pong_Server\Pong_2\Debug\Pong_Server.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Michal\Desktop\Pong_Server\Pong_2\Debug\Pong_Server.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Michal\Desktop\Pong_Server\Pong_2\Debug\Pong_Server.lib" /MACHINE:X86 Debug\Ball.obj
          Debug\Event.obj
          Debug\main.obj
          Debug\Paddle.obj
          Debug\Pong.obj
          Debug\Texture.obj
-         Pong_2.vcxproj -> C:\Users\Michal\Desktop\Pong2_Server - Kopia\Pong_2\Debug\Pong_Server.exe
-     1>Done Building Project "C:\Users\Michal\Desktop\Pong2_Server - Kopia\Pong_2\Pong_2\Pong_2.vcxproj" (Build target(s)).
+         Pong_2.vcxproj -> C:\Users\Michal\Desktop\Pong_Server\Pong_2\Debug\Pong_Server.exe
+     1>Done Building Project "C:\Users\Michal\Desktop\Pong_Server\Pong_2\Pong_2\Pong_2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.79
+Time Elapsed 00:00:01.23

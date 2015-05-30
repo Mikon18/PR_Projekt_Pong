@@ -336,6 +336,8 @@ void Pong::run()
 	speed.inactive = true;
 	slow.inactive = true;
 	reverse.inactive = true;
+	int ballXtmp;
+	int ballYtmp;
 	/*Sockety*/
 	struct sockaddr_in si_other;
 	int s, slen = sizeof(si_other);
@@ -360,7 +362,7 @@ void Pong::run()
 	///////////////////////////////////////
 	if (loadSprite())
 	{
-		while (1)
+		while (!quit)
 		{
 			SDL_Event event;
 			if (id == -1)
@@ -381,6 +383,10 @@ void Pong::run()
 			{
 				while (SDL_PollEvent(&event) != 0)
 				{
+					if (event.type == SDL_QUIT)
+					{
+						quit = true;
+					}
 					switch (id)
 					{
 					case 0:
@@ -424,9 +430,10 @@ void Pong::run()
 					paddles[1].posX = buf[1];
 					paddles[2].posY = buf[2];
 					paddles[3].posY = buf[3];
+					ballXtmp = ball.posX;
+					ballYtmp = ball.posY;
 					ball.posX = buf[4];
 					ball.posY = buf[5];
-					ball.lastPaddle = buf[9];
 					if (ball.lastEvent != buf[6])
 					{
 						switch (buf[6])
@@ -448,16 +455,19 @@ void Pong::run()
 							break;
 						}
 					}
-					if (buf[10] == 0)
+					ball.move(paddles, &speed, &reverse, &slow, &start);
+					if ((abs(ball.posX - ballXtmp) > 200 || abs(ball.posY - ballYtmp) > 200) && ball.posX != -200)
 					{
-						if (buf[9] < 4)
+						ballXtmp = ball.posX;
+						ballYtmp = ball.posY;
+						ball.faultInd = true;
+						if (ball.lastPaddle < 4)
 						{
-							ball.score[buf[9]]++;
+							ball.score[ball.lastPaddle]++;
 						}
 					}
 				}
 			}
-			ball.move(paddles, &speed, &reverse, &slow, &start);
 			SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			SDL_RenderClear(renderer);
 			render(horizontalPaddle, paddles[0].posX, paddles[0].posY, renderer);
@@ -512,7 +522,7 @@ void Pong::run()
 					break;
 				}
 			}
-			if (buf[10] == 0)
+			if (ball.faultInd)
 			{
 				table[0].loadFromRenderedText("Score:", textColor, renderer);
 				table[1].loadFromRenderedText("Bottom Paddle: " + to_string(ball.score[0]), textColor, renderer);
@@ -526,9 +536,10 @@ void Pong::run()
 				render(table[4], 300, 345, renderer);
 			}
 			SDL_RenderPresent(renderer);
-			if (buf[10] == 0)
+			if (ball.faultInd)
 			{
-				Sleep(750);
+				Sleep(2000);
+				ball.faultInd = false;
 			}
 		}
 		
