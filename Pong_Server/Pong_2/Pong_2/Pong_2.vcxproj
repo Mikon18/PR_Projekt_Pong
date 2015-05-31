@@ -16,14 +16,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Pong.cpp" />
-    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Pong.h" />
-    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5EB8B6C3-C0E3-4D76-93B4-2260E53D58B7}</ProjectGuid>

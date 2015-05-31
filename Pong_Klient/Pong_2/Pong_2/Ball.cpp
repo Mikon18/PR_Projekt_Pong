@@ -20,7 +20,7 @@ void Ball::setPosition(float x, float y)
 	posX = x;
 	posY = y;
 }
-void Ball::move(Paddle paddles[], Event *speed, Event *reverse, Event *slow, clock_t *start)
+void Ball::move(Paddle paddles[], Event *speed, Event *reverse, Event *slow)
 {	
 	if (posY < speed->posY + speed->eventHeight && posY + ballHeight > speed->posY
 		&& posX < speed->posX + speed->eventWidth && posX + ballWidth > speed->posX && speed->inactive == false)

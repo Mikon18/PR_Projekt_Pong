@@ -26,7 +26,6 @@ public:
 	void handleEvent2(SDL_Event& e);
 	void handleEvent3(SDL_Event& e);
 	void handleEvent4(SDL_Event& e);
-	void randomEvent();
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	Texture horizontalPaddle, verticalPaddle, ballTexture, speedTexture, reverseTexture, slowTexture, table[5], keys[2], steeringInstr;

@@ -10,7 +10,7 @@
 #include <math.h>
 #ifndef BALL_H_
 #define BALL_H_
-const float BALL_SPEED = -4.0;
+const float BALL_SPEED = -2.0;
 const float MAX_BOUND_ANGLE = 5 * M_PI / 12;
 
 class Ball

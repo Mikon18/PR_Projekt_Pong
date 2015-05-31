@@ -19,7 +19,7 @@ public:
 	float ballSpeed;
 	Ball();
 	void setPosition(float posX, float posY);
-	void move(Paddle paddles[], Event *speed, Event *reverse, Event *slow, clock_t *start);
+	void move(Paddle paddles[], Event *speed, Event *reverse, Event *slow);
 	float posX, posY;
 	float velX, velY;
 	bool faultInd;

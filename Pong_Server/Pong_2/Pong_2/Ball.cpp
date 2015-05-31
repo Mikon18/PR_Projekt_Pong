@@ -2,7 +2,7 @@
 
 Ball::Ball()
 {
-	ballSpeed = -4.0;
+	ballSpeed = BALL_SPEED;
 	ballWidth = 24;
 	ballHeight = 24;
 	velX = 0;
@@ -51,7 +51,7 @@ void Ball::move(Paddle paddles[], Event *speed, Event *reverse, Event *slow, clo
 		posX = (SCREEN_WIDTH / 2) - 12;
 		posY = (SCREEN_HEIGHT / 2) - 12;
 		lastPaddle = 4;
-		ballSpeed = -4.0;
+		ballSpeed = BALL_SPEED;
 		faultInd = false;
 		for(int i = 0; i<4; i++)
 		{

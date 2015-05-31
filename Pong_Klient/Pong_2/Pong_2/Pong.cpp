@@ -5,23 +5,6 @@ Pong::Pong()
 	window = NULL;
 	renderer = NULL;
 }
-void Pong::randomEvent()
-{
-	srand(time(NULL));
-	int i = rand() % 4 + 1;
-	switch (i)
-	{
-	case 1:
-		speed.setPosition(rand() % (SCREEN_WIDTH - 200) + 100, rand() % (SCREEN_HEIGHT - 200) + 100);
-		break;
-	case 2:
-		slow.setPosition(rand() % (SCREEN_WIDTH - 200) + 100, rand() % (SCREEN_HEIGHT - 200) + 100);
-		break;
-	case 3:
-		reverse.setPosition(rand() % (SCREEN_WIDTH - 200) + 100, rand() % (SCREEN_HEIGHT - 200) + 100);
-		break;
-	}
-}
 bool Pong::init()
 {
 	bool success = true;
@@ -106,29 +89,32 @@ void Pong::handleEvent1(SDL_Event& e)
 	}
 	else if (e.type == SDL_KEYUP && e.key.repeat == 0)
 	{
-		switch (e.key.keysym.sym)
+		if (!ball.faultInd)
 		{
-		case SDLK_LEFT:
-			if (!paddles[0].reverse)
+			switch (e.key.keysym.sym)
 			{
-				paddles[0].velX += paddles[0].paddleVelocity;
-				break;
-			}
-			else
-			{
-				paddles[0].velX -= paddles[0].paddleVelocity;
-				break;
-			}
-		case SDLK_RIGHT:
-			if (!paddles[0].reverse)
-			{
-				paddles[0].velX -= paddles[0].paddleVelocity;
-				break;
-			}
-			else
-			{
-				paddles[0].velX += paddles[0].paddleVelocity;
-				break;
+			case SDLK_LEFT:
+				if (!paddles[0].reverse)
+				{
+					paddles[0].velX += paddles[0].paddleVelocity;
+					break;
+				}
+				else
+				{
+					paddles[0].velX -= paddles[0].paddleVelocity;
+					break;
+				}
+			case SDLK_RIGHT:
+				if (!paddles[0].reverse)
+				{
+					paddles[0].velX -= paddles[0].paddleVelocity;
+					break;
+				}
+				else
+				{
+					paddles[0].velX += paddles[0].paddleVelocity;
+					break;
+				}
 			}
 		}
 	}
@@ -322,7 +308,6 @@ void Pong::run()
 {
 	/*SDL*/
 	bool quit = false;
-	clock_t start = clock();
 	SDL_Color textColor = { 0, 0, 0 };
 	paddles[0].setPosition((SCREEN_WIDTH / 2) - 150 / 2, SCREEN_HEIGHT - 30);
 	paddles[1].setPosition((SCREEN_WIDTH / 2) - 150 / 2, 0);
@@ -411,6 +396,7 @@ void Pong::run()
 				{
 					paddles[id].moveHorizontal();
 				}
+				ball.faultInd = false;
 				buf[0] = id;
 				if (id > 1)
 				{
@@ -455,7 +441,7 @@ void Pong::run()
 							break;
 						}
 					}
-					ball.move(paddles, &speed, &reverse, &slow, &start);
+					ball.move(paddles, &speed, &reverse, &slow);
 					if ((abs(ball.posX - ballXtmp) > 200 || abs(ball.posY - ballYtmp) > 200) && ball.posX != -200)
 					{
 						ballXtmp = ball.posX;
@@ -538,8 +524,24 @@ void Pong::run()
 			SDL_RenderPresent(renderer);
 			if (ball.faultInd)
 			{
+				SDL_FlushEvents(SDL_FIRSTEVENT, SDL_LASTEVENT);
+				SDL_WaitEventTimeout(&event, 2000);
 				Sleep(2000);
-				ball.faultInd = false;
+				ball.lastPaddle = 4;
+				for (int i = 0; i<4; i++)
+				{
+					paddles[i].paddleVelocity = 6;
+					paddles[i].velX = 0;
+					paddles[i].velY = 0;
+					paddles[i].reverse = false;
+				}
+				paddles[0].setPosition((SCREEN_WIDTH / 2) - 150 / 2, SCREEN_HEIGHT - 30);
+				paddles[1].setPosition((SCREEN_WIDTH / 2) - 150 / 2, 0);
+				paddles[2].setPosition(0, (SCREEN_HEIGHT / 2) - 150 / 2);
+				paddles[3].setPosition(SCREEN_WIDTH - 30, (SCREEN_HEIGHT / 2) - 150 / 2);
+				speed.inactive = true;
+				slow.inactive = true;
+				reverse.inactive = true;
 			}
 		}
 		
